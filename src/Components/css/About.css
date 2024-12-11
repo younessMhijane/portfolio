@@ -1,0 +1,109 @@
+.About{
+    padding: 20px;
+    align-items: center;
+    color: white;
+    height: 80%;
+    text-align: start;
+    display: flex;    
+}
+
+.About h1{
+    position: relative;
+    font-weight: bold;
+    font-size: 3em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    animation: rotateText 1s linear ;
+}
+@keyframes rotateText {
+     from {
+        left: -500px;
+    }
+    to {
+         left: 0px;
+    }
+
+}
+.About h1 span{
+    color: #6A0DAD;
+}
+.About h1 span:hover{
+    filter: drop-shadow(0px 0px 2px #6A0DAD);
+    font-size: 51px;
+    cursor: pointer;
+}
+.About h2{
+    position: relative;
+    animation: rotateText 2s linear ;
+    font-size: 2em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 15px;
+}
+.About h2 span{
+    color: #6A0DAD;
+}
+.About h2 span:hover{
+    filter: drop-shadow(0px 0px 2px #6A0DAD);
+    font-size: 33px;
+    cursor: pointer;
+}
+.About .p{
+    margin-top: 15px;
+    overflow: hidden;
+}
+.About p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    position: relative;
+    animation: rotateTexttop 2s linear ;
+    
+}
+@keyframes rotateTexttop {
+    from {
+       top: -200px;
+   }
+   to {
+        top: 0px;
+   }
+}
+.About .download-button{
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    padding: 3px 15px;
+    border: 2px solid #6A0DAD;
+    border-radius: 15px;
+    animation: openDownload 2s ease-out;
+    align-items: center;
+}
+.About .download-button:hover{
+    background-color: #6A0DAD;
+    color: aliceblue;
+    box-shadow: 0 0 5px 2px rgba(106, 13, 173, 0.7); /* Ombre violette */
+}
+@keyframes openDownload {
+    0%,30% {
+      transform: scale(0); /* Commence avec une échelle réduite */
+      opacity: 0;          /* Rendre le bouton invisible au début */
+    }
+    to{
+      transform: scale(1); /* Échelle normale */
+      opacity: 1;          /* Rendre le bouton visible */
+    }
+  }
+.About .socialMedia{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+    animation: openDownload 2s ease-out;
+
+}
+.About .socialMedia img{
+    width:30px;
+}
+.About .socialMedia img:hover{
+    width:33px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px #9500ff;
+}

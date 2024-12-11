@@ -1,0 +1,112 @@
+.Project {
+    height: auto;
+    width: 95%;
+    margin: 30px;
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 10px 1px  #6A0DAD; */
+
+    justify-content: center;
+    
+}
+.Project h1{
+    font-weight: bold;
+    font-size:xx-large;
+    padding-bottom: 50px;
+    color:  #6A0DAD;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    animation: slowOpen linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover  20%;
+}
+.Projects{
+    margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width:1100px ;
+    animation: slowOpen linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover  30%;
+
+ 
+}
+@media (max-width: 730px) {
+    .Projects{ 
+        justify-content: center;
+    }
+
+    
+}
+.Project .cardPeoject {
+    box-shadow: 0px 0px 5px #6A0DAD;
+    border: 2px solid #6A0DAD;
+    border-radius: 20px;
+    height: 270px;
+    padding: 10px;
+}
+.Project .cardPeoject:hover {
+    box-shadow: 0px 0px 20px #6A0DAD;
+}
+.Project .NamProject {
+    text-align: start;
+    margin-left: 10px;
+}
+.Project .NamProject a {
+    border-radius: 10px;
+    display: flex;
+    margin-top: 10px;
+    position: absolute;
+    z-index: 99;
+    background-color: #ffffff7a;
+    padding: 0 5px;
+    color: #430172;
+}
+.Project .NamProject a:hover {
+    background-color: #00000028;
+    color: #ffffff;
+}
+.Project .NamProject a p{
+    margin-top: 4px;
+    font-weight: 500;
+    
+}
+.Project .imgs {
+    background-color: rgba(0, 0, 0, 0.082);
+    border-radius: 20px;
+    width: 290px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.Project .description p{
+    margin-left:5px ;
+    height: 55px;
+    text-align: start;
+    color: white;
+}
+.Project .logiciel {
+
+    border-radius: 15px;
+    height: auto; /* Ajuste automatiquement selon le contenu */
+    width: 100%; /* Prend toute la largeur disponible */
+    display: flex;
+    gap: 5px; /* Espace entre les technologies */
+    margin:0 5px 5px 5px ;
+    overflow-x: scroll;
+    overflow-y: hidden; 
+    white-space: nowrap
+
+}
+.Project .logiciel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.Project .logiciel span {
+    background-color: #6A0DAD;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}

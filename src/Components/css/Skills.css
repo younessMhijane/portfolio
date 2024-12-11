@@ -1,0 +1,83 @@
+.Skills {
+    text-align: center;
+    padding: 20px;
+    height: auto;
+
+  }
+.Skills h2 {
+    color: #6a0dad;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+}
+  .infoSkills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profileContainer {
+    margin: 80px;
+    position: relative;
+    width: 300px;
+  }
+  .profileContainer:hover {
+    width: 305px;
+  }
+  
+  .profileContainer>img {
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px  #6a0dad;
+  }
+  
+  /* Conteneur pour les icônes */
+  .rotatingIcons {
+    position: absolute;
+    top: -21%;
+    left: -25%;
+    width: 450px;
+    height: 470px;
+    animation: spin 20s linear infinite;
+    border-radius: 50%;
+  }
+  
+  /* Styles pour les icônes */
+  .icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    border:1px solid #6a0dad;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .icon:hover {
+    background-color: #6a0dad70;
+    box-shadow:0px 0px 10px #6a0dad;
+    cursor: pointer;
+    
+  }
+  /* Pause l'animation au survol d'une icône */
+  .rotatingIcons.paused {
+    animation-play-state: paused;
+  }
+
+  /* Positionnement des icônes autour de l'image */
+  .icon.html { top: 0; left: 40%; }
+  .icon.css { top: 50%; right: 0%; ; }
+  .icon.js { bottom: 0; left: 40%;; }
+  .icon.php { top: 15%; left: 10%; }
+  .icon.java { top: 15%; right: 10%; }
+  .icon.react { bottom: 12%; left: 13%; }
+  .icon.python { bottom: 12%; right: 13%; }
+  .icon.tailwindcss { top: 50%; left: 0%; }
+  
+  /* Animation de rotation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

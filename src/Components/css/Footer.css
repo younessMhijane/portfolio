@@ -1,0 +1,23 @@
+.Footer{
+    background-color:  #6A0DAD;
+    padding-bottom: 20px;
+}
+.Footer .socialMedia{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+.Footer .socialMedia img{
+    width:30px;
+}
+.Footer .socialMedia img:hover{
+    width:33px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px #9500ff;
+}
+.Footer .copyright{
+    color: #dcabff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

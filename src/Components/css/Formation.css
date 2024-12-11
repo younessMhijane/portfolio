@@ -1,0 +1,72 @@
+.Formation {
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+
+  }
+.Formation h2 {
+    color: #6a0dad;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+}
+.Formation .formationStep {
+    display: flex;
+    position: relative;
+    justify-content: center;
+
+}
+.Formation .formationStep .baccalaureate, .child, .licence{
+    position: absolute;
+}
+.Formation .formationStep .child{
+    top: 100px;
+    left: 100px;    
+}
+.Formation .formationStep .child h3{
+    font-weight: bold;
+    top: 20px;
+    position: relative;
+    color: #6a0dad;
+    
+}
+.Formation .formationStep .child p img{
+    filter: drop-shadow(0px 0px 5px #6a0dad);
+    width: 60px;
+}
+.Formation .formationStep .baccalaureate{
+    bottom: -10px;}
+.Formation .formationStep .baccalaureate h3{
+    font-weight: bold;
+    top: -10px;
+    position: relative;
+    color: #6a0dad;
+
+}
+.Formation .formationStep .baccalaureate p{
+    background-color: #6a0dade7;
+    box-shadow:0px 0px 5px #6a0dad;
+    color: white;
+    border-radius: 5px 20px;
+    padding: 10px;
+    width: 200px;
+}
+.Formation .formationStep .licence{
+    top: 110px;
+    right: 100px;    
+}
+.Formation .formationStep .licence h3{
+    font-weight: bold;
+    top: 20px;
+    position: relative;
+    color: #6a0dad;
+    
+}
+.Formation .formationStep .licence p{
+    background-color: #6a0dade7;
+    box-shadow:0px 0px 5px #6a0dad;
+    color: white;
+    border-radius: 5px 20px;
+    padding: 10px;
+    width: 150px;
+}

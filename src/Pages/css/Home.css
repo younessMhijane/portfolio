@@ -1,0 +1,188 @@
+.Home {
+    margin: 0;
+}
+.Home .Home-Header{
+    width: 100%;
+    align-content: center;
+    padding-bottom:10px;
+    background-color: #1f1f1f;
+}
+.Home .Home-About-Logo3D{
+    animation: slowOpen linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover  30%;
+    padding: 80px 30px;
+    gap: 20px;
+    background: #1f1f1f;
+    height: auto;
+
+}
+@media (min-width: 1170px) {
+    .Home .Home-About-Logo3D {
+        display: flex;
+    }
+    .Home .Home-About{
+        width: 50%;
+    }
+    .Home .Home-Logo3D{
+        width: 50%;
+    }
+    .Home .Home-Skills-Formation {
+        display: flex;
+    }
+    .Home .Home-Skills{
+        width: 50%;
+    }
+    .Home .Home-Formation{
+        width: 50%;
+    }
+
+}
+.Home .Home-Logo3D{
+    position: relative;
+    animation: rotatelogo 2s linear ;
+}
+
+@keyframes rotatelogo {
+    from{
+        right: -400px;
+    }
+    to{
+        right: 0px;
+    }
+}
+.Home .Home-Skills-Formation{
+    animation: slowOpen linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover  30%;
+    gap: 20px;
+    height: 100%;
+
+}
+
+.Home .Home-Project{
+    display: flex;
+    border-radius: 2px;
+    justify-content: center;
+    height: auto;
+    background-color: #1f1f1f;
+
+}
+.Home .Home-Contact{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background-color: #1f1f1f;
+
+
+}
+.Home .Home-Footer{
+    background-color:#6A0DAD ;
+}
+@keyframes slowOpen {
+    from {opacity: 0; scale: 0.5;}
+    to {opacity: 1; scale: 1;}
+}
+.Home .moreInfo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.726);
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    justify-content: end;
+
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .Home .divMoreInfo{
+    height: 100%;
+    background-color: black;
+    box-shadow: 0px 0px 5px black;
+    width: 98%;
+    color: white;
+  }
+  .Home .divMoreInfo button{
+    display: block;
+    text-decoration:underline;
+    margin: 10px 15px;
+}
+@media (min-width: 700px) {
+    .Home .divMoreInfo{
+        width: 50%;
+    }
+  }
+  
+  .moreInfo-content {
+      background-color: #1f1f1f;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+}
+.moreInfo-content h2{
+    font-size: large;
+    text-align: start;
+    color: #8b8b8b;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.moreInfo-content h2 span{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 150px;
+}
+  
+  .image-slider {
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .arrow {
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .left-arrow {
+    left: 0;
+  }
+  
+  .right-arrow {
+    right: 0;
+  }
+  
+  .arrow:hover {
+    color: #6A0DAD;
+    filter: drop-shadow(0px 0px 2px #a55cda);
+  }
+.moreInfo-content p{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-align: start;
+    color: rgb(206, 206, 206);
+}
+.moreInfo-content p span{
+    color: #8b8b8b;
+    font-size: 16px;
+}
+
+  
