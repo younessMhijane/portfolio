@@ -17,7 +17,7 @@ export default function About() {
       <h1>Hey, C'est <span>Youness</span></h1>
       <h2>Développeur <span> full stack</span></h2>
       <div className='p'> <p>Je suis développeur full-stack passionné par la création d'applications web modernes et performantes. Je suis encore au début de ma carrière et j'essaie de rencontrer des personnes partageant les mêmes idées et intérêts comme toi 😄.</p></div>
-      <div style={{display:'flex',height:'35px', width:'400px',gap:'20px', justifyContent:'end'}}>
+      <div className='download-socialM'>
       <div className='socialMedia'>
         <a href="https://ma.linkedin.com/in/youness-m-hijane-4ab243261" target="_blank" rel="noopener noreferrer">
             <img src={linkedin} alt='linkedin'></img>

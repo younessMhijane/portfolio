@@ -70,3 +70,12 @@
     padding: 10px;
     width: 150px;
 }
+@media (max-width: 430px) {
+    .Formation .formationStep .licence{
+        right: 5%;    
+    }
+    .Formation .formationStep .child{
+        top: 110px;
+        left: 10%;    
+    }
+}
