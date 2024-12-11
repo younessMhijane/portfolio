@@ -28,10 +28,10 @@ export default function Formation() {
             Q 450 180, 500 250 
             T 590 250" 
             stroke="#6a0dad" 
-            stroke-width="4" 
-            stroke-dasharray="10, 10" 
+            strokeWidth="4" 
+            strokeDasharray="10, 10" 
             fill="none"
-            marker-end="url(#arrowhead)"
+            markerEnd="url(#arrowhead)"
         />
         </svg>
         <div className='child'>
