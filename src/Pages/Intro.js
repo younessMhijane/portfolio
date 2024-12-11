@@ -6,7 +6,7 @@ import songIntro from '../assets/shine-11-268907.mp3';
 
 const Intro = () => {
   const [fullHeightInto, setFullHeightInto] = useState(130);
-  const [endIntro, setEndIntro] = useState(true);
+  const [endIntro, setEndIntro] = useState(false);
   const [audio] = useState(new Audio(songIntro));
 
   useEffect(() => {
