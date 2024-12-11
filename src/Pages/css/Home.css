@@ -33,9 +33,7 @@
     }
     .Home .Home-Skills-Formation {
         display: flex;
-        animation: slowOpen linear;
-        animation-timeline: view();
-        animation-range: entry 0% cover  30%;
+
     }
     .Home .Home-Skills{
         width: 50%;
@@ -59,20 +57,10 @@
     }
 }
 .Home .Home-Skills-Formation{
-    animation: none;
     gap: 20px;
     height: 100%;
 }
-.Home .Home-Skills{
-    animation: slowOpen linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover  30%;
-}
-.Home .Home-Formation{
-    animation: slowOpen linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover  30%;
-}
+
 
 .Home .Home-Project{
     display: flex;
@@ -92,10 +80,6 @@
 }
 .Home .Home-Footer{
     background-color:#6A0DAD ;
-}
-@keyframes slowOpen {
-    from {opacity: 0; scale: 0.5;}
-    to {opacity: 1; scale: 1;}
 }
 .Home .moreInfo {
     position: fixed;

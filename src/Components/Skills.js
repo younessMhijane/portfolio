@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './css/Skills.css';
 import photoProfil from '../assets/photoProfil.jpg';
 import react from '../assets/iconsLangageFrameworks/react-2.svg';
@@ -9,14 +9,17 @@ import JS from '../assets/iconsLangageFrameworks/javascript-1.svg';
 import php from '../assets/iconsLangageFrameworks/new-php-logo.png';
 import python from '../assets/iconsLangageFrameworks/python-5.svg';
 import tailwindCss from '../assets/iconsLangageFrameworks/tailwindcss.svg';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function Skills() {
   const [isPaused, setIsPaused] = useState(false);
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <div className='Skills'>
-      <h2>Skills</h2>
-      <div className='infoSkills'>
+      <h2 data-aos="fade-up">Skills</h2>
+      <div className='infoSkills' data-aos="fade-up">
         <div className='profileContainer'>
           <img src={photoProfil} alt='profil' />
           <div

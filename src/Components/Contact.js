@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './css/Contact.css';
 import Swal from 'sweetalert2';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -47,8 +50,8 @@ export default function Contact() {
 
   return (
     <div className="Contact">
-      <h1>Contact</h1>
-      <form onSubmit={onSubmit}>
+      <h1 data-aos="fade-up">Contact</h1>
+      <form onSubmit={onSubmit} data-aos="fade-up">
         <label htmlFor="name" className="block text-sm font-medium text-white-900">
           Nom
         </label>

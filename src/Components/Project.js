@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './css/Project.css'
 import folder from '../assets/folder-svgrepo-com.svg'
 import todo1 from '../assets/todo/todo1.png'
@@ -10,7 +10,13 @@ import weather2 from '../assets/weather/weather2.png'
 import weather3 from '../assets/weather/weather3.png'
 import weather4 from '../assets/weather/weather4.png'
 import weather5 from '../assets/weather/weather5.png'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function Project({ setOpenMoreInfo }) {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const projects = [
     {
       name: "📝 TodoList & Notes",
@@ -30,10 +36,10 @@ export default function Project({ setOpenMoreInfo }) {
 
   return (
     <div className="Project">
-      <h1>Mes Projets</h1>
+      <h1 data-aos="fade-up">Mes Projets</h1>
       <div className="Projects">
         {projects.map((project, index) => (
-          <div key={index} className="cardPeoject">
+          <div key={index} className="cardPeoject" data-aos="fade-up">
             <div className="NamProject">
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 <img src={folder} alt={`${project.name} Icon`} />

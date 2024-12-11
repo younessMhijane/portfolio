@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './css/Formation.css'
 import bebe from '../assets/16447-removebg-preview.png'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function Formation() {
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+      }, []);
   return (
     <div className='Formation'>
-        <h2>Formation</h2>
+        <h2 data-aos="fade-up">Formation</h2>
         
-        <div className='formationStep'>
+        <div className='formationStep' data-aos="fade-up">
         <svg width="600" height="360" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <marker 
