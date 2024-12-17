@@ -9,7 +9,7 @@ export default function Formation() {
       }, []);
   return (
     <div className='Formation'>
-        <h2 data-aos="fade-up">Formation</h2>
+        <h2 data-aos="fade-up">Education</h2>
         
         <div className='formationStep' data-aos="fade-up">
         <svg width="600" height="360" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
@@ -45,10 +45,10 @@ export default function Formation() {
         </div>
         <div className='baccalaureate'>
             <h3>2021</h3>
-            <p>Baccalauréat en Sciences Physique</p>
+            <p>Baccalaureate in Physical Sciences</p>
         </div>
         <div className='licence'>
-        <p>Licence en Génie Logiciel</p>
+        <p>Bachelor's degree in Software Engineering</p>
         <h3>2024</h3>
         </div>
         </div> 

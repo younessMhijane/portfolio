@@ -135,7 +135,7 @@ const Logo3D = () => {
         });
 
         const textMaterial = new THREE.MeshStandardMaterial({
-          color: 0x000000,  // Couleur du texte (noir)
+          color: 'white',  // Couleur du texte (noir)
           roughness: 0.5,
           metalness: 0.5,
         });

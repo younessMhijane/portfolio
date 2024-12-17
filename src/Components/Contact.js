@@ -53,7 +53,7 @@ export default function Contact() {
       <h1 data-aos="fade-up">Contact</h1>
       <form onSubmit={onSubmit} data-aos="fade-up">
         <label htmlFor="name" className="block text-sm font-medium text-white-900">
-          Nom
+          Name
         </label>
         <input
           type="text"
@@ -87,7 +87,7 @@ export default function Contact() {
           className="rounded-md bg-violet-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-indigo-600"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Envoi en cours..." : "Envoyer"}
+        {isSubmitting ? "Sending..." : "Send"}
         </button>
       </form>
     </div>

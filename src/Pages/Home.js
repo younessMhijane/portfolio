@@ -108,10 +108,10 @@ export default function Home() {
           {selectedProject &&
           <div className='moreInfo'>
             <div className='divMoreInfo'>
-              <button onClick={()=>setSelectedProject(null)}>Fermer</button>
+              <button onClick={()=>setSelectedProject(null)}>Close</button>
 
               <div className="moreInfo-content">
-                <h2>Nom Projet: <span>{selectedProject.name}</span> </h2>
+                <h2>Project Name: <span>{selectedProject.name}</span> </h2>
                 <div className="image-slider">
               <button className="arrow left-arrow" onClick={showPrevImage}>
                 &#9664;

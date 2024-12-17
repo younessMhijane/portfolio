@@ -52,7 +52,7 @@
     width: 200px;
 }
 .Formation .formationStep .licence{
-    top: 110px;
+    top: 90px;
     right: 100px;    
 }
 .Formation .formationStep .licence h3{
@@ -68,11 +68,11 @@
     color: white;
     border-radius: 5px 20px;
     padding: 10px;
-    width: 150px;
+    width: 170px;
 }
 @media (max-width: 430px) {
     .Formation .formationStep .licence{
-        right: 5%;    
+        right: 2%;    
     }
     .Formation .formationStep .child{
         top: 110px;

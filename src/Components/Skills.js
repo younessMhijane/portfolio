@@ -9,6 +9,8 @@ import JS from '../assets/iconsLangageFrameworks/javascript-1.svg';
 import php from '../assets/iconsLangageFrameworks/new-php-logo.png';
 import python from '../assets/iconsLangageFrameworks/python-5.svg';
 import tailwindCss from '../assets/iconsLangageFrameworks/tailwindcss.svg';
+import mongoDb from '../assets/iconsLangageFrameworks/mongodb-svgrepo-com.svg';
+import nodejs from '../assets/iconsLangageFrameworks/node-js-svgrepo-com.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 export default function Skills() {
@@ -77,6 +79,20 @@ export default function Skills() {
             <img
               src={tailwindCss}
               className='icon tailwindcss'
+              alt='Tailwind CSS'
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            />
+            <img
+              src={mongoDb}
+              className='icon mongodb'
+              alt='Tailwind CSS'
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            />
+            <img
+              src={nodejs}
+              className='icon nodejs'
               alt='Tailwind CSS'
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}

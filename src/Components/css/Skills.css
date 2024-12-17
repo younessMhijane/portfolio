@@ -65,13 +65,15 @@
   @media (min-width: 430px) {
 
   .icon.html { top: 0; left: 40%; }
-  .icon.css { top: 50%; right: 0%; ; }
+  .icon.css { top: 35%; right: 0%; ; }
   .icon.js { bottom: 0; left: 40%;; }
-  .icon.php { top: 15%; left: 10%; }
-  .icon.java { top: 15%; right: 10%; }
-  .icon.react { bottom: 12%; left: 13%; }
-  .icon.python { bottom: 12%; right: 13%; }
-  .icon.tailwindcss { top: 50%; left: 0%; }
+  .icon.php { top: 11%; left: 14%; }
+  .icon.java { top: 10%; right: 15%; }
+  .icon.react { bottom: 10%; left: 14%; }
+  .icon.python { bottom: 7%; right: 18%; }
+  .icon.tailwindcss { top: 35%; left: 1%; }
+  .icon.mongodb { bottom: 25%; right: 3%; }
+  .icon.nodejs { top: 58%; left: 2%; }
   }
   /* Animation de rotation */
   @keyframes spin {

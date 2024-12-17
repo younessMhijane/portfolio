@@ -21,22 +21,22 @@ export default function Project({ setOpenMoreInfo }) {
     {
       name: "📝 TodoList & Notes",
       link: "https://github.com/younessMhijane/React-Projet-To-do-list-Note",
-      description: "Une application de gestion de tâches et de prise de notes développée avec React. Cette application permet aux utilisateurs d'organiser leur quotidien de manière simple et efficace. Grâce à une interface épurée, elle offre une expérience fluide pour la création, l'édition et la suppression des tâches et des notes.",
-      technologies: ["React js", "CSS", "tailwind css"],
+      description: "A task management and note-taking application developed with React. This app allows users to organize their daily tasks in a simple and efficient way. With a clean interface, it provides a smooth experience for creating, editing, and deleting tasks and notes.",
+      technologies: ["React js", "CSS", "Tailwind CSS"],
       images: [todo1,todo2,todo3,todo4],
     },
     {
       name: "🌦️ Weather App",
       link: "https://github.com/younessMhijane/react-weather",
-      description: "Une application météo développée avec React qui permet de consulter les conditions météorologiques en temps réel pour différentes villes. Grâce à une interface intuitive et des informations détaillées telles que la température, l'humidité et les prévisions, cette application facilite le suivi des conditions climatiques.",
+      description: "A weather application developed with React that allows users to check real-time weather conditions for different cities. With an intuitive interface and detailed information such as temperature, humidity, and forecasts, this app makes it easy to track weather conditions.",
       technologies: ["React js", "CSS", "OpenWeather API"],
       images: [weather1,weather2,weather3,weather4,weather5],
     },
-  ];
+  ];  
 
   return (
     <div className="Project">
-      <h1 data-aos="fade-up">Mes Projets</h1>
+      <h1 data-aos="fade-up">My Projects</h1>
       <div className="Projects">
         {projects.map((project, index) => (
           <div key={index} className="cardPeoject" data-aos="fade-up">

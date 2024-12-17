@@ -15,7 +15,7 @@ export default function Footer() {
       </div>
 
         <div className='copyright'>
-        <p> © Youness M'hijane | Tous Droits Réservés</p>
+        <p>© Youness M'hijane | All Rights Reserved</p>
         </div>
     </div>
   )

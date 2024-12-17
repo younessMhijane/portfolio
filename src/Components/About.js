@@ -14,9 +14,11 @@ export default function About() {
   return (
     <div className='About'>
       <div>
-      <h1>Hey, C'est <span>Youness</span></h1>
-      <h2>Développeur <span> full stack</span></h2>
-      <div className='p'> <p>Je suis développeur full-stack passionné par la création d'applications web modernes et performantes. Je suis encore au début de ma carrière et j'essaie de rencontrer des personnes partageant les mêmes idées et intérêts comme toi 😄.</p></div>
+      <h1>Hey, It's <span>Youness</span></h1>
+      <h2>Full-Stack <span>Developer</span></h2>
+      <div className='p'>
+          <p>I am a full-stack developer passionate about creating modern and high-performance web applications. I am still early in my career and I’m looking to connect with like-minded people and share interests, like you 😄.</p>
+      </div>
       <div className='download-socialM'>
       <div className='socialMedia'>
         <a href="https://ma.linkedin.com/in/youness-m-hijane-4ab243261" target="_blank" rel="noopener noreferrer">
