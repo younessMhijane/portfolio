@@ -132,7 +132,7 @@ export default function Home() {
                 <div>
                   <p>Technologies :
                     {selectedProject.technologies.map((tech, index) => (
-                      <span key={index}>{tech}, </span>
+                      <span className='tech-item' key={index}> {tech}, </span>
                     ))}
                   </p>
                 </div>
