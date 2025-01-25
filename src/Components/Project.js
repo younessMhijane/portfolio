@@ -45,7 +45,7 @@ export default function Project({ setOpenMoreInfo }) {
       name: "🛒 E-commerce Project",
       link: "https://github.com/younessMhijane/MERN-E-COMMERCE",
       description: "An e-commerce platform built with React, Redux, and Node.js. This project features product listings, a shopping cart, and a secure checkout process, allowing users to browse products, add them to the cart, and make purchases. The app also includes user authentication and order tracking.",
-      technologies: ["React js", "Redux", "Node.js", "Express", "MongoDB"],
+      technologies: ["React js", "Redux", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
       images: [ecommerce1, ecommerce2, ecommerce3, ecommerce4, ecommerce5, ecommerce6, ecommerce7, ecommerce8, ecommerce9],
     },
   ];
