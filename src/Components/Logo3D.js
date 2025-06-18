@@ -1,171 +1,178 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader";  // Importer FontLoader
-import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";  // Importer TextGeometry
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 
 const Logo3D = () => {
-  const mountRef = useRef(null);  // Référence à l'élément DOM pour rendre la scène 3D
+  const mountRef = useRef(null);
 
   useEffect(() => {
-    const mountNode = mountRef.current;
+    const mount = mountRef.current;
+    const width = mount.clientWidth;
+    const height = mount.clientHeight;
 
-    // Initialisation de la scène, caméra et renderer
+    // Scene
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      50,
-      mountNode.clientWidth / mountNode.clientHeight,
-      0.1,
-      100
-    );
-    camera.position.set(0, 2, 10); // Position de la caméra
+    scene.fog = new THREE.Fog(0x1f1f1f, 10, 30);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(
-      mountNode.clientWidth,
-      mountNode.clientHeight
-    );
-    renderer.shadowMap.enabled = true; // Activer les ombres
-    renderer.setClearColor(0x1f1f1f); // Définir la couleur de fond (gris clair)
-    mountNode.appendChild(renderer.domElement);
+    // Camera
+    const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+    camera.position.set(0, 2, 13);
 
-    // Contrôles de la caméra
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setSize(width, height);
+    renderer.shadowMap.enabled = true;
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x1f1f1f);
+    mount.appendChild(renderer.domElement);
+
+    // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
+    controls.enableZoom = false;
 
-    // Lumière ambiante
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
+    // Lights
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
 
-    // Lumière directionnelle pour les ombres dynamiques
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
-    directionalLight.position.set(1, 1, 1);
-    directionalLight.castShadow = true;
-    directionalLight.shadow.mapSize.width = 1024;  // Résolution de la carte d'ombres
-    directionalLight.shadow.mapSize.height = 1024;
+    const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+    dirLight.position.set(5, 10, 5);
+    dirLight.castShadow = true;
+    scene.add(dirLight);
 
-    scene.add(directionalLight);
-
-    // Lumière ponctuelle qui se déplace
-    const pointLight = new THREE.PointLight(0xffffff, 1.5);
-    pointLight.position.set(0, 5, 0);
+    const pointLight = new THREE.PointLight(0x00ffff, 1.5, 50);
     pointLight.castShadow = true;
-    pointLight.shadow.mapSize.width = 1024;  // Résolution de la carte d'ombres pour la lumière ponctuelle
-    pointLight.shadow.mapSize.height = 1024;
+    pointLight.position.set(0, 3, 0);
     scene.add(pointLight);
 
-    // Plan au sol
-    const planeGeometry = new THREE.PlaneGeometry(10, 10);
-    const planeMaterial = new THREE.MeshStandardMaterial({ color: "#1f1f1f" });
-    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.rotation.x = -Math.PI / 2;
-    plane.position.y = -1;
-    plane.receiveShadow = true;  // Assurer que le plan reçoit les ombres
-    scene.add(plane);
+    // Floor reflection
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(20, 20),
+      new THREE.MeshPhysicalMaterial({
+        color: "#111",
+        metalness: 0.8,
+        roughness: 0.3,
+        reflectivity: 0.5,
+        clearcoat: 1,
+        transparent: true,
+        opacity: 0.7,
+      })
+    );
+    floor.rotation.x = -Math.PI / 2;
+    floor.receiveShadow = true;
+    floor.position.y = -1;
+    scene.add(floor);
 
-    // Groupe pour le logo
+    // Logo group
     const logoGroup = new THREE.Group();
-
-    // Matériau pour les cylindres
-    const material = new THREE.MeshStandardMaterial({
-      color: "#6A0DAD",
-      roughness: 0.3,  // Surface plus lisse
-      metalness: 0.3
+    const material = new THREE.MeshPhysicalMaterial({
+      color: "#8a2be2",
+      metalness: 0.9,
+      roughness: 0.2,
+      clearcoat: 1,
+      emissive: new THREE.Color(0x4400ff),
+      emissiveIntensity: 0.1,
     });
 
-    // Cylindres et cônes pour le logo
-    const cylinder1 = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 2.5, 32), material);
-    cylinder1.position.set(-1, 1, 0);
-    cylinder1.rotation.set(0, 0, Math.PI); // Rotation selon le code original
-    cylinder1.castShadow = true;
-    logoGroup.add(cylinder1);
+    const createPart = (geo, pos, rot) => {
+      const mesh = new THREE.Mesh(geo, material);
+      mesh.position.set(...pos);
+      mesh.rotation.set(...rot);
+      mesh.castShadow = true;
+      logoGroup.add(mesh);
+    };
 
-    const cylinder2 = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.3, 32), material);
-    cylinder2.position.set(-0.3, 0.4, 0);
-    cylinder2.rotation.set(0, 0, Math.PI / 7);
-    cylinder2.castShadow = true;
-    logoGroup.add(cylinder2);
+    createPart(new THREE.CylinderGeometry(0.2, 0.2, 2.5, 32), [-1, 1, 0], [0, 0, Math.PI]);
+    createPart(new THREE.CylinderGeometry(0.2, 0.2, 1.3, 32), [-0.3, 0.4, 0], [0, 0, Math.PI / 7]);
+    createPart(new THREE.ConeGeometry(0.2, 1.4, 32), [-0.66, 1.6, 0], [0, 0, 0.15]);
+    createPart(new THREE.CylinderGeometry(0.2, 0.2, 1.3, 32), [0.3, 0.4, 0], [0, 0, -Math.PI / 7]);
+    createPart(new THREE.CylinderGeometry(0.2, 0.2, 1, 32), [0, -0.6, 0], [0, 0, Math.PI]);
+    createPart(new THREE.CylinderGeometry(0.2, 0.2, 2.5, 32), [1, 1, 0], [0, 0, -Math.PI]);
+    createPart(new THREE.ConeGeometry(0.2, 1.4, 32), [0.66, 1.6, 0], [0, 0, -0.15]);
 
-    const cylinder7 = new THREE.Mesh(new THREE.ConeGeometry(0.2, 1.4, 32), material);
-    cylinder7.position.set(-0.66, 1.6, 0);
-    cylinder7.rotation.set(0, 0, 0.15);
-    cylinder7.castShadow = true;
-    logoGroup.add(cylinder7);
-
-    const cylinder3 = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1.3, 32), material);
-    cylinder3.position.set(0.3, 0.4, 0);
-    cylinder3.rotation.set(0, 0, -Math.PI / 7);
-    cylinder3.castShadow = true;
-    logoGroup.add(cylinder3);
-
-    const cylinder4 = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 1, 32), material);
-    cylinder4.position.set(0, -0.6, 0);
-    cylinder4.rotation.set(0, 0, Math.PI);
-    cylinder4.castShadow = true;
-    logoGroup.add(cylinder4);
-
-    const cylinder5 = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 2.5, 32), material);
-    cylinder5.position.set(1, 1, 0);
-    cylinder5.rotation.set(0, 0, -Math.PI);
-    cylinder5.castShadow = true;
-    logoGroup.add(cylinder5);
-
-    const cylinder6 = new THREE.Mesh(new THREE.ConeGeometry(0.2, 1.4, 32), material);
-    cylinder6.position.set(0.66, 1.6, 0);
-    cylinder6.rotation.set(0, 0, -0.15);
-    cylinder6.castShadow = true;
-    logoGroup.add(cylinder6);
-
-    // Ajouter le groupe de logo à la scène
     scene.add(logoGroup);
 
-    // Chargement de la police et création du texte 3D
+    // Animated particles
+    const particlesCount = 200;
+    const particlesGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 20;
+    }
+    particlesGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const particlesMat = new THREE.PointsMaterial({
+      size: 0.05,
+      color: "#ffffff",
+    });
+    const particles = new THREE.Points(particlesGeo, particlesMat);
+    scene.add(particles);
+
+    // Text
     const fontLoader = new FontLoader();
-    fontLoader.load(
-      'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', // Chemin de la police
-      (font) => {
-        const textGeometry = new TextGeometry("Y o u n e s s  M' h i j a n e", {
-          font: font,
-          size: 1,  // Taille du texte
-          depth: 0.1,  // Épaisseur du texte
-          curveSegments: 12,
-          bevelEnabled: true,
-          bevelThickness: 0.5,
-          bevelSize: 0.2,
-        });
+    fontLoader.load("https://threejs.org/examples/fonts/helvetiker_regular.typeface.json", (font) => {
+      const textGeo = new TextGeometry("Youness M'hijane", {
+        font,
+        size: 0.8,
+        height: 0.15,
+        bevelEnabled: true,
+        bevelThickness: 0.03,
+        bevelSize: 0.02,
+      });
+      const textMat = new THREE.MeshStandardMaterial({
+        color: "#ffffff",
+        metalness: 0.6,
+        roughness: 0.3,
+        emissive: new THREE.Color(0x222222),
+      });
+      const text = new THREE.Mesh(textGeo, textMat);
+      text.castShadow = true;
+      text.position.set(-4.5, -0.6, 8);
+      scene.add(text);
 
-        const textMaterial = new THREE.MeshStandardMaterial({
-          color: 'white',  // Couleur du texte (noir)
-          roughness: 0.5,
-          metalness: 0.5,
-        });
+      // Pulse effect
+      let pulse = 0;
+      const animateText = () => {
+        pulse += 0.02;
+        text.scale.setScalar(1 + Math.sin(pulse) * 0.02);
+        requestAnimationFrame(animateText);
+      };
+      animateText();
+    });
 
-        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.set(-8, -0.5, 9); // Positionner le texte sur le plan
-        scene.add(textMesh);  // Ajouter le texte à la scène
-      }
-    );
-
-    // Fonction d'animation
+    // Animate
+    const clock = new THREE.Clock();
     const animate = () => {
-      logoGroup.rotation.y += 0.01;  // Rotation continue du logo
-      pointLight.position.x = Math.sin(Date.now() * 0.001) * 5;
-      pointLight.position.z = Math.cos(Date.now() * 0.001) * 5;
+      const t = clock.getElapsedTime();
+      logoGroup.rotation.y += 0.01;
+      pointLight.position.x = Math.sin(t) * 5;
+      pointLight.position.z = Math.cos(t) * 5;
 
       controls.update();
       renderer.render(scene, camera);
-      requestAnimationFrame(animate); // Boucle d'animation
+      requestAnimationFrame(animate);
     };
     animate();
 
-    // Nettoyage à la suppression du composant
+    // Resize
+    const handleResize = () => {
+      const w = mount.clientWidth;
+      const h = mount.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
     return () => {
-      mountNode.removeChild(renderer.domElement);
+      window.removeEventListener("resize", handleResize);
+      mount.removeChild(renderer.domElement);
       renderer.dispose();
     };
-  }, []);  // L'effet s'exécute une seule fois au montage
+  }, []);
 
-  return <div ref={mountRef} style={{ width: "100%", height: "400px" }} />;
+  return <div ref={mountRef} style={{ width: "100%", height: "500px" }} />;
 };
 
 export default Logo3D;

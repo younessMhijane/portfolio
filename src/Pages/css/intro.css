@@ -1,26 +1,28 @@
 .Intro {
-    display: flex;
-    background-color: #1f1f1f;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1f1f1f;
+}
 
-  }
-.Intro .logo{
+.Intro .logo {
   position: absolute;
 }
-.Intro .logoInit path{
+
+.Intro .logoInit path {
   fill: transparent;
   stroke: #6A0DAD;
   stroke-dasharray: 320;
   stroke-dashoffset: 320;
-  animation: logoAnimation 4s ease-in-out;
+  animation: logoAnimation 2.5s ease-in-out forwards;
 }
+
 @keyframes logoAnimation {
-  0%{
+  0% {
     stroke-dashoffset: 320;
   }
-  100%{
+  100% {
     stroke-dashoffset: 0;
   }
 }

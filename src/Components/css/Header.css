@@ -5,6 +5,9 @@
     height: 100%;
     display: flex;
     padding: 0 20px;
+    position: sticky;
+    z-index: 100;
+    backdrop-filter: blur(10px);
 }
 .Header .d1{
     width: 25%;
