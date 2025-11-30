@@ -1,113 +1,91 @@
 .Skills {
-    text-align: center;
-    padding: 20px;
-    height: auto;
-
-  }
-.Skills h2 {
-    color: #6a0dad;
-    font-weight: 700;
-    font-size: x-large;
-    text-align: center;
+  text-align: center;
+  padding: 40px;
 }
-  .infoSkills {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profileContainer {
-    margin: 80px;
-    position: relative;
-    width: 300px;
-  }
-  .profileContainer:hover {
-    width: 305px;
-  }
-  
-  .profileContainer>img {
-    border-radius: 50%;
-    box-shadow: 0px 0px 10px  #6a0dad;
-  }
-  
-  /* Conteneur pour les icônes */
-  .rotatingIcons {
-    position: absolute;
-    top: -21%;
-    left: -25%;
-    width: 450px;
-    height: 470px;
-    animation: spin 20s linear infinite;
-    border-radius: 50%;
-  }
-  
-  /* Styles pour les icônes */
-  .icon {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    border:1px solid #6a0dad;
-    padding: 10px;
-    border-radius: 50%;
-  }
-  .icon:hover {
-    background-color: #6a0dad70;
-    box-shadow:0px 0px 10px #6a0dad;
-    cursor: pointer;
-    
-  }
-  /* Pause l'animation au survol d'une icône */
-  .rotatingIcons.paused {
-    animation-play-state: paused;
-  }
 
-  /* Positionnement des icônes autour de l'image */
-  @media (min-width: 430px) {
+.Skills h2 {
+  color: #6a0dad;
+  font-size: 2rem;
+  font-weight: 700;
+}
 
-  .icon.html { top: 0; left: 40%; }
-  .icon.css { top: 35%; right: 0%; ; }
-  .icon.js { bottom: 0; left: 40%;; }
-  .icon.php { top: 11%; left: 14%; }
-  .icon.java { top: 10%; right: 15%; }
-  .icon.react { bottom: 10%; left: 14%; }
-  .icon.python { bottom: 7%; right: 18%; }
-  .icon.tailwindcss { top: 35%; left: 1%; }
-  .icon.mongodb { bottom: 25%; right: 3%; }
-  .icon.nodejs { top: 58%; left: 2%; }
-  }
-  /* Animation de rotation */
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  @media (max-width: 431px) {
-    .rotatingIcons {
-      width: 100%;
-      height: auto;
-      margin-top: 20px;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      animation: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      top: 0%;
-      left: 0%;
-    }
-    
-    .icon {
-      position: relative;    }
-    .profileContainer {
-      margin: 20px;
+.infoSkills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    }
-    .Skills {
-      padding: 0px;
-    }
-  }
+/* Container global */
+.circleWrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
   
+  display: flex;           /* ❤️ technique PRO */
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Photo ronde */
+.profileWrapper {
+  width: 300px;            /* taille de l'image (tu peux changer) */
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 12px #6a0dad;
+
+  display: flex;           /* ❤️ technique PRO */
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;         /* centre horizontalement */
+  position: relative;     
+}
+
+.profileWrapper img {
+  height: 100%;
+  object-fit: cover;       /* rempli le cercle proprement */
+}
+
+
+/* Cercle des icônes */
+.iconsCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 360px;
+  transform: translate(-50%, -50%);
+  animation: rotateCircle 24s linear infinite;
+  
+}
+
+/* Rotation */
+@keyframes rotateCircle {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Chaque icône */
+.iconContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #6a0dad;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  background-color: #6a0dad20;
+  box-shadow: 0 0 12px #6a0dad;
+}
