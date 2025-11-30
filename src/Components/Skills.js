@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import './css/Skills.css';
 import photoProfil from '../assets/photoProfil.jpg';
 import react from '../assets/iconsLangageFrameworks/react-2.svg';
