@@ -21,6 +21,8 @@ import ecommerce8 from '../assets/ecommerce/e-commerce-8.png'
 import ecommerce9 from '../assets/ecommerce/e-commerce-9.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import posthog from 'posthog-js';
+
 export default function Project({ setOpenMoreInfo }) {
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -49,7 +51,32 @@ export default function Project({ setOpenMoreInfo }) {
       images: [ecommerce1, ecommerce2, ecommerce3, ecommerce4, ecommerce5, ecommerce6, ecommerce7, ecommerce8, ecommerce9],
     },
   ];
-  
+
+  // 🔥 Capture click on GitHub link
+  const trackProjectLinkClick = (project) => {
+    posthog.capture('project_open_link', {
+      project_name: project.name,
+      link: project.link,
+    });
+  };
+
+  // 🔥 Capture opening modal (More Info)
+  const handleMoreInfo = (project) => {
+    posthog.capture('project_more_info', {
+      project_name: project.name,
+      technologies: project.technologies,
+      images: project.images.length,
+    });
+
+    setOpenMoreInfo(project);
+  };
+
+  // 🔥 Capture image click
+  const handleImageClick = (project) => {
+    posthog.capture('project_thumbnail_click', {
+      project_name: project.name,
+    });
+  };
 
   return (
     <div className="Project">
@@ -57,26 +84,35 @@ export default function Project({ setOpenMoreInfo }) {
       <div className="Projects">
         {projects.map((project, index) => (
           <div key={index} className="cardPeoject" data-aos="fade-up">
+
             <div className="NamProject">
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackProjectLinkClick(project)}
+              >
                 <img src={folder} alt={`${project.name} Icon`} />
                 <p>{project.name}</p>
               </a>
             </div>
-            <button onClick={() => setOpenMoreInfo(project)}>
-              <div className="imgs">
+
+            <button onClick={() => handleMoreInfo(project)}>
+              <div className="imgs" onClick={() => handleImageClick(project)}>
                 <img src={project.images[0]} alt="imageOne" />
               </div>
             </button>
 
             <div className="description">
-            <p>{project.description.substring(0, 30)}...</p>
+              <p>{project.description.substring(0, 30)}...</p>
             </div>
+
             <div className="logiciel">
               {project.technologies.map((tech, i) => (
                 <span key={i}>{tech}</span>
               ))}
             </div>
+
           </div>
         ))}
 
