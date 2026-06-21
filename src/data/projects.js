@@ -55,7 +55,8 @@ export const projects = [
     features: ['Scan arrivee et depart', 'Calcul des heures et de la paie', 'Conges et absences', 'Exports PDF et Excel'], accent: 'violet',
   },
   {
-    slug: 'fils-dor', number: '07', title: "Fils d'Or", subtitle: 'Artisanat marocain, presence premium.',
+    // slug: 'fils-dor', number: '07', title: "Fils d'Or", subtitle: 'Artisanat marocain, presence premium.',
+    slug: 'Site-vitrine ', number: '07', title: "Site vitrine ", subtitle: 'Artisanat marocain, presence premium.',
     category: 'WordPress', tags: ['WordPress', 'Client'], status: 'Projet client',
     stack: ['WordPress', 'Elementor', 'CSS', 'SEO'],
     description: 'Site vitrine elegant pour une unite specialisee en caftans, takchitas et broderie marocaine.',
@@ -63,7 +64,7 @@ export const projects = [
     features: ['Identite visuelle luxe', 'Galerie et services', 'FAQ et contact', 'Contenu optimise SEO'], accent: 'gold',
   },
   {
-    slug: 'instruvolt', number: '08', title: 'Instruvolt Solutions', subtitle: 'Expertise industrielle bien presentee.',
+    slug: 'Site-professionnel', number: '08', title: 'Site professionnel', subtitle: 'Expertise industrielle bien presentee.',
     category: 'WordPress', tags: ['WordPress', 'Client'], status: 'Projet client',
     stack: ['WordPress', 'Elementor', 'WPForms', 'CSS'],
     description: "Site professionnel pour une entreprise d'automatisme, instrumentation et electricite industrielle.",
